@@ -8,3 +8,93 @@ for example http://localhost:3000/person?name=shubham&age=20 after ? we have nam
 do console.log(req.query) we will get { name: 'shubham', age: '20' } as output
 
 we can also store single keyword from the query that is name in this case in a variable by using req.query.name and we will get shubham as output
+
+
+****************************************************
+folder structure :------
+models->model.js conatins all the schema
+routes->user.js contains all the routes
+server.js->contains all the server related code
+controller -> it contains all the function and task related to the routes
+
+from router.js we are exporting the route and importing in the server.js file
+
+
+****************************************************
+Here we are starting the rote splitting and we will be using express router for this purpose 
+we will be creating a folder routes and inside that we will be creating a file user.js and we will be writing all the routes related to user in that file
+and  we are creating the models folders and inside this all the models will be stored from creating schema
+
+
+
+It is ok to use app.get and from server.js we can export the app and can import where we want to use it but it is not a good practice to do so and for this we will use router
+
+The router has better benefits over exporting and importing app if all the api had same url than we can create and add prefix so that every time we will not add the same url   
+
+*************************************************************************************************************************************************************************************************************************
+What is the main differnece between export and export deafult?
+In JavaScript, the `export` statement is used to export functions, objects, or values from a module to make them available for use in other modules. There are two forms of the `export` statement: `export default` and `export`.
+__________________________________________________________________________________________________________________________________________________________________________________
+1. `export default`:
+   - Used when you want to export a single value, function, or object as the default export of the module.
+   - You can only have one default export per module.
+   - When importing the default export in another module, you can choose any name for the imported value.
+   - Example:
+     ```javascript
+     // module.js
+     const myFunction = () => {
+       // function implementation
+     };
+
+     export default myFunction;
+
+     // otherModule.js
+     import myFunction from './module';
+     ```
+__________________________________________________________________________________________________________________________________________________________________________________
+2. `export`:
+   - Used when you want to export multiple values, functions, or objects from a module.
+   - You can have multiple named exports per module.
+   - When importing named exports in another module, you need to use the exact names specified in the exporting module.
+   - Example:
+     ```javascript
+     // module.js
+     export const foo = 'foo';
+     export const bar = 'bar';
+
+     // otherModule.js
+     import { foo, bar } from './module';
+     ```
+
+In summary, use `export default` when you want to export a single value, function, or object as the default export of the module, and use `export` when you want to export multiple values, functions, or objects from a module.
+
+
+*************************************************************************************************************************************************************************************************************************
+if you are useing type= module
+then 
+// export.js
+const message = 'Hello, world!';
+module.exports = message; ----------- exporting single value-----
+---------------------------------------------------------------------------
+// export.js
+const greet = (name) => {
+  console.log(`Hello, ${name}!`);
+};
+
+const sayGoodbye = (name) => {
+  console.log(`Goodbye, ${name}!`);
+};
+
+module.exports = {
+  greet,
+  sayGoodbye,
+};
+-----------------exporting multiple values----------------
+************************************************************************************************
+// to create multiple route 
+// router.route("/userid/:id").get(getUserDetails).put(updateUser).delete(deleteUser)
+
+is smae as
+router.ge("/userid/:id",getUserDetails)
+router.put("/userid/:id",updateUser)
+router.delete("/userid/:id",deleteUser)
