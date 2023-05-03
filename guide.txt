@@ -1,0 +1,10 @@
+what is params?
+these are query which are passed to the url and further we can use them in our code
+
+to acess the query params we can use req.query
+
+to pass in the url we can use ? and then the query name and value pair for multiple query we can use & to seperate them 
+for example http://localhost:3000/person?name=shubham&age=20 after ? we have name and age as query and their value is shubham and 20 respectively and if we 
+do console.log(req.query) we will get { name: 'shubham', age: '20' } as output
+
+we can also store single keyword from the query that is name in this case in a variable by using req.query.name and we will get shubham as output
